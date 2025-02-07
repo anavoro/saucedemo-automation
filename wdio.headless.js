@@ -10,7 +10,7 @@ exports.config = {
            args: [
             "--headless", 
             "--disable-gpu",
-            "--user-data-dir=/path/to/unique/directory"],
+            "--user-data-dir=/tmp/chrome-profile-${Date.now()}"],
                 },
              },
          ],  
