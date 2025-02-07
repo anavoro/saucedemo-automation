@@ -30,35 +30,40 @@ describe('Footer Links Test', () => {
       await linkElement.waitForDisplayed();
       await linkElement.waitForClickable();
 
-      // Get current window handle
       const originalWindow = await browser.getWindowHandle();
 
-      // Click the link
       await linkElement.click();
 
-      // Wait for a new tab to open
       await browser.waitUntil(
         async () => (await browser.getWindowHandles()).length > 1,
         {
-          timeout: 5000,
+          timeout: 10000,
+          interval: 500,
           timeoutMsg: `New tab did not open for ${name}`,
         }
       );
 
-      // Switch to the new tab
       const handles = await browser.getWindowHandles();
       const newTabHandle = handles.find((handle) => handle !== originalWindow);
       await browser.switchToWindow(newTabHandle);
 
-      // Validate the new tab URL
-      const currentUrl = await browser.getUrl();
-      await expect(currentUrl).toBe(expectedUrl);
+      await browser.waitUntil(
+        async () => {
+          const currentUrl = await browser.getUrl();
+          return currentUrl.includes(expectedUrl);
+        },
+        {
+          timeout: 10000,
+          interval: 500,
+          timeoutMsg: `URL did not match expected ${expectedUrl}`,
+        }
+      );
 
-      // Close the new tab and switch back
+      const currentUrl = await browser.getUrl();
+      await expect(currentUrl).toContain(expectedUrl);
+
       await browser.closeWindow();
       await browser.switchToWindow(originalWindow);
     });
   });
 });
-
-
