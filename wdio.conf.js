@@ -23,6 +23,7 @@ exports.config = {
     specs: [
         './test/specs/**/*.js'
     ],
+    services: ['selenium-standalone'],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
