@@ -1,6 +1,6 @@
 const { expect } = require('@wdio/globals');
-const LoginTestPage = require('../pageobjects/login-test.js');
-const CheckoutTestPage = require ('../pageobjects/checkout.js');
+const LoginTestPage = require('../../pageobjects/login-test.js');
+const CheckoutTestPage = require ('../../pageobjects/checkout.js');
 
 describe('Invalid Checkout', () => {
     it('should not proceed without any products in a cart', async () => {

@@ -1,6 +1,6 @@
 const { expect } = require('@wdio/globals');
-const LoginTestPage = require('../pageobjects/login-test.js');
-const LogoutTestPage = require('../pageobjects/logout-test.js');
+const LoginTestPage = require('../../pageobjects/login-test.js');
+const LogoutTestPage = require('../../pageobjects/logout-test.js');
 
 describe('Logout from Current account', () => {
     it('should log out after successful login', async () => {

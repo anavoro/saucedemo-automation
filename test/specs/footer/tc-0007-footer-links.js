@@ -1,5 +1,5 @@
 const { expect } = require('@wdio/globals');
-const LoginTestPage = require('../pageobjects/login-test.js');
+const LoginTestPage = require('../../pageobjects/login-test.js');
 
 const footerLink = [
   {

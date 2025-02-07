@@ -1,8 +1,8 @@
 const { expect } = require('@wdio/globals');
-const LoginTestPage = require('../pageobjects/login-test.js');
-const CartTestPage = require('../pageobjects/cart-test.js');
-const CartActions = require('../pageobjects/cart-add.js'); 
-const LogoutTestPage = require('../pageobjects/logout-test.js');
+const LoginTestPage = require('../../pageobjects/login-test.js');
+const CartTestPage = require('../../pageobjects/cart-test.js');
+const CartActions = require('../../pageobjects/cart-add.js'); 
+const LogoutTestPage = require('../../pageobjects/logout-test.js');
 
 describe('Saving the cart after logout', () => {
     it('Should keep the products in the cart after logging back in', async () => {

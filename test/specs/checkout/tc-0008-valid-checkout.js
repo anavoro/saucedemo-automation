@@ -1,8 +1,8 @@
 const { expect } = require('@wdio/globals');
-const LoginTestPage = require('../pageobjects/login-test.js');
-const CartActions = require('../pageobjects/cart-add.js'); 
-const CheckoutTestPage = require ('../pageobjects/checkout.js');
-const CartTestPage = require('../pageobjects/cart-test.js');
+const LoginTestPage = require('../../pageobjects/login-test.js');
+const CartActions = require('../../pageobjects/cart-add.js'); 
+const CheckoutTestPage = require ('../../pageobjects/checkout.js');
+const CartTestPage = require('../../pageobjects/cart-test.js');
 
 describe('Valid Chekout', () => {
     it('should fill out all information and checkout successfully', async () => {
