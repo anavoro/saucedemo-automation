@@ -8,6 +8,7 @@ class CartPage extends BasePage {
   async getCartItemText() {
     return await this.cartItemName.getText();
   }
+
   async proceedToCheckout() {
     await $("#checkout").click();
   }

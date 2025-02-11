@@ -4,6 +4,7 @@ class LogoutPage extends BasePage {
   get btnBurger() {
     return $("#react-burger-menu-btn");
   }
+
   get btnLogout() {
     return $("#logout_sidebar_link");
   }
