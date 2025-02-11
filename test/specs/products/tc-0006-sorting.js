@@ -41,10 +41,6 @@ describe("Products", () => {
       await expect(browser).toHaveUrl(inventoryPage.url);
 
       await inventoryPage.selectSortOption(name);
-      await browser.waitUntil(async () => (await $$(selector)).length > 0, {
-        timeout: 5000,
-        timeoutMsg: "Inventory items did not load in time",
-      });
       const itemData = await inventoryPage.getItemData(selector);
       const sortedData = sortMethod(itemData);
 

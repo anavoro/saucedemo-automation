@@ -13,8 +13,8 @@ class LoginPage extends BasePage {
     return $("#login-button");
   }
 
-  get errorMessage() {
-    return $(".error-message-container");
+  get errorMessageText() {
+    return $(".error-message-container").getText();
   }
 
   async login(username, password) {

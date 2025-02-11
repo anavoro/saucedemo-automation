@@ -17,8 +17,8 @@ class CheckoutPage extends BasePage {
     return $("#continue");
   }
 
-  get errorMessage() {
-    return $(".error-message-container");
+  get errorMessageText() {
+    return $(".error-message-container").getText();
   }
 
   async fillOutCheckoutDetails(firstName, lastName, postalCode) {
