@@ -1,14 +1,9 @@
-const { $ } = require('@wdio/globals');
 class BasePage {
-    baseUrl = 'https://www.saucedemo.com';
+  baseUrl = "https://www.saucedemo.com/";
 
-    async open(path = '') {
-        await browser.url(`${this.baseUrl}${path}`);
-    }
-
-    async expectCurrentUrl(url) {
-        await expect(browser).toHaveUrl(url);
-    }
+  async open() {
+    await browser.url(this.baseUrl);
+  }
 }
 
-module.exports = BasePage; 
+module.exports = BasePage;
