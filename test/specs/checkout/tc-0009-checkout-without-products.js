@@ -12,7 +12,7 @@ describe('Invalid Checkout', () => {
 
         await inventoryPage.goToCart()
 
-        const itemCount = await cartPage.getItemCount();
+        const itemCount = await inventoryPage.getItemCount();
         expect(itemCount).toBe(0);
 
         await cartPage.proceedToCheckout();
