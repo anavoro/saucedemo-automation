@@ -1,6 +1,6 @@
 const BasePage = require("./basepage");
 
-class LogoutPage {
+class LogoutPage extends BasePage {
   get btnBurger() {
     return $("#react-burger-menu-btn");
   }
