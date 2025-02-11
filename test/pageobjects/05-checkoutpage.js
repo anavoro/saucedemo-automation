@@ -1,4 +1,7 @@
-class CheckoutTestPage {
+const { $ } = require('@wdio/globals');
+const BasePage = require('./01-basepage');
+
+class CheckoutPage extends BasePage {
     get inputFirstName() {
         return $('#first-name'); 
     }
@@ -25,6 +28,14 @@ class CheckoutTestPage {
         await this.inputPostalCode.setValue(postalCode);
         await this.btnContinue.click(); 
     }
+
+    async finishCheckout() {
+        await $('#finish').click();
+    }
+
+    async returnToProducts() {
+        await $('#back-to-products').click();
+    }
 }
 
-module.exports = new CheckoutTestPage();
+module.exports = new CheckoutPage();

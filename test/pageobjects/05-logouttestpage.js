@@ -1,5 +1,5 @@
 const { $ } = require('@wdio/globals');
-
+const BasePage = require('./01-basepage');
 
 class LogoutPage  {
     get btnBurger() { return $('#react-burger-menu-btn'); }

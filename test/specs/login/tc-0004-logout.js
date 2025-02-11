@@ -1,19 +1,18 @@
-const { expect } = require('@wdio/globals');
-const LoginTestPage = require('../../pageobjects/login-test.js');
-const LogoutTestPage = require('../../pageobjects/logout-test.js');
+const LoginTestPage = require('../../pageobjects/02-logintestpage.js');
+const LogoutTestPage = require('../../pageobjects/05-logouttestpage.js');
+const InventoryPage = require('../../pageobjects/03-inventorypage.js');
 
 describe('Logout from Current account', () => {
     it('should log out after successful login', async () => {
 
-        await LoginTestPage.open();
+        await loginTestPage.open();
 
-        await LoginTestPage.login('standard_user', 'secret_sauce');
+        await loginTestPage.login('standard_user', 'secret_sauce');
 
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
+        await expect(browser).toHaveUrl(inventoryPage.url);
+       
+        await logoutTestPage.logout();
 
-        await LogoutTestPage.logout();
-
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/');
+        await expect(browser).toHaveUrl(loginTestPage.baseUrl);
     });
 });
-

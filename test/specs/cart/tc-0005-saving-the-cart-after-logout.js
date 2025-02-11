@@ -1,32 +1,29 @@
-const { expect } = require('@wdio/globals');
-const LoginTestPage = require('../../pageobjects/login-test.js');
-const CartTestPage = require('../../pageobjects/cart-test.js');
-const CartActions = require('../../pageobjects/cart-add.js'); 
-const LogoutTestPage = require('../../pageobjects/logout-test.js');
+const loginTestPage = require('../../pageobjects/02-logintestpage.js');
+const inventoryPage = require('../../pageobjects/03-inventorypage.js');
+const cartPage = require('../../pageobjects/04-cartpage.js');
+const logoutTestPage = require('../../pageobjects/05-logouttestpage.js');
 
 describe('Saving the cart after logout', () => {
     it('Should keep the products in the cart after logging back in', async () => {
-     
-        await LoginTestPage.open();
-        await LoginTestPage.login('standard_user', 'secret_sauce');
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
-    
-        await CartActions.addItemToCart();
-    
-        let itemCount = await CartTestPage.getItemCount();
+        
+        await loginTestPage.open();
+        await loginTestPage.login('standard_user', 'secret_sauce');
+        await expect(browser).toHaveUrl(inventoryPage.url);
+
+        await InventoryPage.addItemToCart();
+
+        let itemCount = await InventoryPage.getItemCount();
         expect(itemCount).toBe(1);
 
-        await LogoutTestPage.logout();
-        await LoginTestPage.login('standard_user', 'secret_sauce');
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
+        await logoutTestPage.logout();
+        await loginTestPage.login('standard_user', 'secret_sauce');
+        await expect(browser).toHaveUrl(InventoryPage.url);
 
-        const cartItemCount = await CartTestPage.getItemCount();
-        expect(cartItemCount).toBe(1); 
-        
-        const cartButton = await $('.shopping_cart_link').click();
-        const cartItemName = await $('#cart_contents_container .inventory_item_name');
-        const cartItemText = await cartItemName.getText();
-        
+        itemCount = await inventoryPage.getItemCount();
+        expect(itemCount).toBe(1);
+
+        await inventoryPage.goToCart();
+        const cartItemText = await cartPage.getCartItemText();
         expect(cartItemText).toBe('Sauce Labs Backpack');
     });
 });

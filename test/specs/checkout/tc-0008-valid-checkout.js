@@ -1,30 +1,34 @@
-const { expect } = require('@wdio/globals');
-const LoginTestPage = require('../../pageobjects/login-test.js');
-const CartActions = require('../../pageobjects/cart-add.js'); 
-const CheckoutTestPage = require ('../../pageobjects/checkout.js');
-const CartTestPage = require('../../pageobjects/cart-test.js');
+const loginTestPage = require('../../pageobjects/02-logintestpage.js');
+const cartPage = require('../../pageobjects/04-cartpage.js'); 
+const checkoutPage = require ('../../pageobjects/05-checkoutpage.js');
+const inventoryPage = require ('../../pageobjects/03-inventorypage.js')
+const { faker } = require('@faker-js/faker');
 
 describe('Valid Chekout', () => {
     it('should fill out all information and checkout successfully', async () => {
 
-        await LoginTestPage.open();
-        await LoginTestPage.login('standard_user', 'secret_sauce');
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
+        const firstName = faker.person.firstName();
+        const lastName = faker.person.lastName();
+        const zipCode = faker.location.zipCode();
 
-        await CartActions.addItemToCart();
+        await loginTestPage.open();
+        await loginTestPage.login('standard_user', 'secret_sauce');
+        await expect(browser).toHaveUrl(inventoryPage.url);
 
-        const cartButton = await $('.shopping_cart_link').click();
+        await inventoryPage.addItemToCart();
 
-        const checkoutButton = await $('#checkout').click();
+        await inventoryPage.goToCart();
+
+        await cartPage.proceedToCheckout();
         
-        await CheckoutTestPage.fillOutCheckoutDetails('Harry', 'Potter', '47001');
+        await checkoutPage.fillOutCheckoutDetails(firstName, lastName, zipCode);
 
-        const finishButton = await $('#finish').click();
-        const homeButton = await $('#back-to-products').click();
+        await checkoutPage.finishCheckout();
+        await checkoutPage.returnToProducts();
         
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
+        await expect(browser).toHaveUrl(inventoryPage.url);
 
-        const cartItemCount = await CartTestPage.getItemCount();
+        const cartItemCount = await cartPage.getItemCount();
         expect(cartItemCount).toBe(0);
 
     });
