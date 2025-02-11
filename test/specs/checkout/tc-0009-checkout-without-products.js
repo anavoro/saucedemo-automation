@@ -1,6 +1,7 @@
 const loginTestPage = require('../../pageobjects/02-logintestpage.js');
 const checkoutPage = require ('../../pageobjects/05-checkoutpage.js');
 const inventoryPage = require ('../../pageobjects/03-inventorypage.js')
+const cartPage = require('../../pageobjects/04-cartpage.js');
 
 describe('Invalid Checkout', () => {
     it('should not proceed without any products in a cart', async () => {
@@ -11,8 +12,8 @@ describe('Invalid Checkout', () => {
 
         await inventoryPage.goToCart()
 
-        const cartItems = await $$('[data-test="cart-item"]');
-        expect(cartItems.length).toBe(0);
+        const itemCount = await cartPage.getItemCount();
+        expect(itemCount).toBe(0);
 
         await cartPage.proceedToCheckout();
 
