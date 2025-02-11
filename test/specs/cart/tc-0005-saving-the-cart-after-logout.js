@@ -10,7 +10,7 @@ describe('Saving the cart after logout', () => {
         await loginTestPage.login('standard_user', 'secret_sauce');
         await expect(browser).toHaveUrl(inventoryPage.url);
 
-        await InventoryPage.addItemToCart();
+        await inventoryPage.addItemToCart();
 
         let itemCount = await InventoryPage.getItemCount();
         expect(itemCount).toBe(1);
