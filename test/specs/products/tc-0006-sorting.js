@@ -1,4 +1,4 @@
-const loginTestPage = require("../../pageobjects/logintestpage.js");
+const loginPage = require("../../pageobjects/loginpage.js");
 const inventoryPage = require("../../pageobjects/inventorypage.js");
 
 describe("Products", () => {
@@ -35,8 +35,8 @@ describe("Products", () => {
 
   sortTests.forEach(({ name, selector, sortMethod }) => {
     it(`Should sort items by ${name}`, async () => {
-      await loginTestPage.open();
-      await loginTestPage.login("standard_user", "secret_sauce");
+      await loginPage.open();
+      await loginPage.login("standard_user", "secret_sauce");
 
       await expect(browser).toHaveUrl(inventoryPage.url);
 

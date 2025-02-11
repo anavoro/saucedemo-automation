@@ -1,12 +1,12 @@
-const loginTestPage = require("../../pageobjects/logintestpage.js");
+const loginPage = require("../../pageobjects/loginpage.js");
 const inventoryPage = require("../../pageobjects/inventorypage.js");
 const cartPage = require("../../pageobjects/cartpage.js");
-const logoutTestPage = require("../../pageobjects/logouttestpage.js");
+const logoutPage = require("../../pageobjects/logoutpage.js");
 
 describe("Cart", () => {
   it("Should keep the products in the cart after logging back in", async () => {
-    await loginTestPage.open();
-    await loginTestPage.login("standard_user", "secret_sauce");
+    await loginPage.open();
+    await loginPage.login("standard_user", "secret_sauce");
     await expect(browser).toHaveUrl(inventoryPage.url);
 
     await inventoryPage.addItemToCart();
@@ -14,8 +14,8 @@ describe("Cart", () => {
     let itemCount = await inventoryPage.getItemCount();
     expect(itemCount).toBe(1);
 
-    await logoutTestPage.logout();
-    await loginTestPage.login("standard_user", "secret_sauce");
+    await logoutPage.logout();
+    await loginPage.login("standard_user", "secret_sauce");
     await expect(browser).toHaveUrl(inventoryPage.url);
 
     itemCount = await inventoryPage.getItemCount();

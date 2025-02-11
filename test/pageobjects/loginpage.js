@@ -1,6 +1,6 @@
 const BasePage = require("./basepage");
 
-class LoginTestPage extends BasePage {
+class LoginPage extends BasePage {
   get inputUsername() {
     return $("#user-name");
   }
@@ -22,4 +22,4 @@ class LoginTestPage extends BasePage {
   }
 }
 
-module.exports = new LoginTestPage();
+module.exports = new LoginPage();

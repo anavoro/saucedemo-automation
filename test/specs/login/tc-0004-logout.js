@@ -1,14 +1,14 @@
-const loginTestPage = require("../../pageobjects/logintestpage.js");
-const logoutTestPage = require("../../pageobjects/logouttestpage.js");
+const loginPage = require("../../pageobjects/loginpage.js");
+const logoutPage = require("../../pageobjects/logoutpage.js");
 const inventoryPage = require("../../pageobjects/inventorypage.js");
 
 describe("Login", () => {
   it("should log out after successful login", async () => {
-    await loginTestPage.open();
-    await loginTestPage.login("standard_user", "secret_sauce");
+    await loginPage.open();
+    await loginPage.login("standard_user", "secret_sauce");
     await expect(browser).toHaveUrl(inventoryPage.url);
-    await logoutTestPage.logout();
+    await logoutPage.logout();
 
-    await expect(browser).toHaveUrl(loginTestPage.baseUrl);
+    await expect(browser).toHaveUrl(loginPage.baseUrl);
   });
 });

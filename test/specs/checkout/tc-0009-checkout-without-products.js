@@ -1,12 +1,12 @@
-const loginTestPage = require("../../pageobjects/logintestpage.js");
+const loginPage = require("../../pageobjects/loginpage.js");
 const checkoutPage = require("../../pageobjects/checkoutpage.js");
 const inventoryPage = require("../../pageobjects/inventorypage.js");
 const cartPage = require("../../pageobjects/cartpage.js");
 
 describe("Checkout", () => {
   it("should not proceed without any products in a cart", async () => {
-    await loginTestPage.open();
-    await loginTestPage.login("standard_user", "secret_sauce");
+    await loginPage.open();
+    await loginPage.login("standard_user", "secret_sauce");
 
     await expect(browser).toHaveUrl(inventoryPage.url);
 
