@@ -1,6 +1,5 @@
 const { $ } = require('@wdio/globals');
-
-module.exports = class BasePage {
+class BasePage {
     baseUrl = 'https://www.saucedemo.com';
 
     async open(path = '') {
@@ -12,4 +11,4 @@ module.exports = class BasePage {
     }
 }
 
-module.exports = BasePage;
+module.exports = BasePage; 

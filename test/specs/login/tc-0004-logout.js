@@ -1,6 +1,6 @@
-const LoginTestPage = require('../../pageobjects/02-logintestpage.js');
-const LogoutTestPage = require('../../pageobjects/05-logouttestpage.js');
-const InventoryPage = require('../../pageobjects/03-inventorypage.js');
+const loginTestPage = require('../../pageobjects/02-logintestpage.js');
+const logoutTestPage = require('../../pageobjects/05-logouttestpage.js');
+const inventoryPage = require('../../pageobjects/03-inventorypage.js');
 
 describe('Logout from Current account', () => {
     it('should log out after successful login', async () => {
