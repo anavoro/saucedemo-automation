@@ -1,7 +1,7 @@
-const loginTestPage = require("../../pageobjects/02-logintestpage.js");
-const inventoryPage = require("../../pageobjects/03-inventorypage.js");
-const cartPage = require("../../pageobjects/04-cartpage.js");
-const logoutTestPage = require("../../pageobjects/05-logouttestpage.js");
+const loginTestPage = require("../../pageobjects/logintestpage.js");
+const inventoryPage = require("../../pageobjects/inventorypage.js");
+const cartPage = require("../../pageobjects/cartpage.js");
+const logoutTestPage = require("../../pageobjects/logouttestpage.js");
 
 describe("Cart", () => {
   it("Should keep the products in the cart after logging back in", async () => {

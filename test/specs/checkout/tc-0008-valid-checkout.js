@@ -1,7 +1,7 @@
-const loginTestPage = require("../../pageobjects/02-logintestpage.js");
-const cartPage = require("../../pageobjects/04-cartpage.js");
-const checkoutPage = require("../../pageobjects/05-checkoutpage.js");
-const inventoryPage = require("../../pageobjects/03-inventorypage.js");
+const loginTestPage = require("../../pageobjects/logintestpage.js");
+const cartPage = require("../../pageobjects/cartpage.js");
+const checkoutPage = require("../../pageobjects/checkoutpage.js");
+const inventoryPage = require("../../pageobjects/inventorypage.js");
 const { faker } = require("@faker-js/faker");
 
 describe("Checkout", () => {

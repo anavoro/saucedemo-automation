@@ -1,5 +1,5 @@
-const loginTestPage = require("../../pageobjects/02-logintestpage.js");
-const inventoryPage = require("../../pageobjects/03-inventorypage.js");
+const loginTestPage = require("../../pageobjects/logintestpage.js");
+const inventoryPage = require("../../pageobjects/inventorypage.js");
 
 describe("Products", () => {
   const sortTests = [

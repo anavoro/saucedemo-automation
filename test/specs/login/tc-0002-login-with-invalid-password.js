@@ -1,4 +1,4 @@
-const loginTestPage = require("../../pageobjects/02-logintestpage.js");
+const loginTestPage = require("../../pageobjects/logintestpage.js");
 
 describe("Login", () => {
   it("should not login with an invalid password", async () => {

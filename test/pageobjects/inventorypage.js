@@ -1,5 +1,5 @@
 const { $ } = require("@wdio/globals");
-const BasePage = require("./01-basepage");
+const BasePage = require("./basepage");
 
 class InventoryPage extends BasePage {
   sortOptionMap = {
