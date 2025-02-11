@@ -12,7 +12,7 @@ describe('Saving the cart after logout', () => {
 
         await inventoryPage.addItemToCart();
 
-        let itemCount = await InventoryPage.getItemCount();
+        let itemCount = await inventoryPage.getItemCount();
         expect(itemCount).toBe(1);
 
         await logoutTestPage.logout();
