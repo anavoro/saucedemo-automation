@@ -13,6 +13,6 @@ describe('Logout from Current account', () => {
        
         await logoutTestPage.logout();
 
-        await expect(browser).toHaveUrlContaining('https://www.saucedemo.com');
+        await expect(browser).toHaveUrl('https://www.saucedemo.com/');
     });
 });

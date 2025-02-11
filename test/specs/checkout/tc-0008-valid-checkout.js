@@ -28,7 +28,7 @@ describe('Valid Chekout', () => {
         
         await expect(browser).toHaveUrl(inventoryPage.url);
 
-        const cartItemCount = await inventoryPagePage.getItemCount();
+        const cartItemCount = await inventoryPage.getItemCount();
         expect(cartItemCount).toBe(0);
 
     });
